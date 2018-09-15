@@ -71,7 +71,7 @@ public class Practice03Test {
 	}
 
 	public int find_min_recursive(int arrLength){
-
+		
 		if(arrLength == 0){
 			return 0;
 		}
