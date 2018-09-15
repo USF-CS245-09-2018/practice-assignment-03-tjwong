@@ -5,6 +5,7 @@ public class Practice03Test {
 
 	protected int count = 0;
 	protected double [] arr;
+	public int minIndex = 0;
 
 
 	/**
@@ -54,7 +55,7 @@ public class Practice03Test {
 
 	public int find_min_iterative () {
 
-		int min;
+		int min = 0;
 		for( int i = 0; i < arr.length; i++){
 			if(arr[i] < arr[min]){
 				min = i;
@@ -66,13 +67,21 @@ public class Practice03Test {
 
 	public int find_min_recursive () {
 		// TODO: Fill in this recursive function.
-		if(arr.length = 0){
+		return find_min_recursive(arr.length);
+	}
+
+	public int find_min_recursive(int arrLength){
+
+		if(arrLength == 0){
 			return 0;
 		}
-		int min = find_min_recursive();
-		if(arr[min] > arr[arr.length]){
-			return min;
+		int min = find_min_recursive(arrLength - 1);
+
+		//finds if the current minimum is larger than the item being evaluated
+		if(arr[min] > arr[arrLength-1]){
+			return arrLength -1;
 		}
+		return min;
 	}
 
 
